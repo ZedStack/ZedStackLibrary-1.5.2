@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1442861741 source:c:\users\casa\documents\github\zedstacklibrary-1.5.2\.cpp\zedstack.cpp
+	"../.hpp/ZedStack.hpp"
+	<iostream>
+	<sstream>
+	<windows.h>
+	<queue>
+	<process.h>
+
+1442863271 c:\users\casa\documents\github\zedstacklibrary-1.5.2\.hpp\zedstack.hpp
+	<iostream>
+	<windows.h>
+
