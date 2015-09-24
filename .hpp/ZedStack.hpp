@@ -22,7 +22,17 @@ namespace ZedStackLibrary {
 	public:
 		SCREEN ();
 		SCREEN (int width, int height);
-		
+		virtual ~SCREEN ();
+		 // TODO: Make it possible for "center" or "upper-left", "upper-right", etc
+
+		void getWidthAndHeight (int& retWidth, int& retHeight);
+		void resize (int newHeight, int newHeight);
+		void render ();
+		void clear ();
+		void close ();
+
+		int getWidth ();
+		int getHeight ();
 	};
 } /* ZedStackLibrary */
 
