@@ -1,6 +1,8 @@
 #include "../.hpp/ZedStackLibrary.hpp"
 
-// TODO: This.
+/**
+ * Using git-plus for better performance.
+ */
 
 int main(int argc, char const *argv[]) {
 	std::cout << "Hello World!" << std::endl;
