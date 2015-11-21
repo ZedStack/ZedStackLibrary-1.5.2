@@ -1,2 +1,7 @@
-Language: cpp
-compiler: gcc
+language: cpp
+
+compiler:
+  - gcc
+  - clang
+
+os: windows
