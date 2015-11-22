@@ -6,7 +6,7 @@
 
 // Needed libraries:
 #include <iostream>
-#include <sstream> 
+#include <sstream>
 #include <windows.h>
 #include <queue>
 #include <process.h>
@@ -67,7 +67,7 @@ LRESULT CALLBACK windowProcedure (HWND hWnd, UINT message, WPARAM wParam, LPARAM
 	switch (message) {
         	case WM_SIZE: {
         		RECT rect;
-                // TODO: Shuld i use "hWindow" instead?
+                // TODO: use "hWindow" instead?
         		GetClientRect (hWnd, &rect); // HACK: hWnd is defined in 66, but also in 18 (old code)
         		int width = rect.right - rect.left;
         		int height = rect.bottom - rect.top;
