@@ -12,7 +12,7 @@
 #include <process.h>
 
 // Extra libraries int the proyect:
-
+// TODO: Add resting libraries.
 
 /**  G L O B A L   V A R I A B L E S  **/
 HWND            hWindow;										// Main screen.
@@ -67,6 +67,7 @@ LRESULT CALLBACK windowProcedure (HWND hWnd, UINT message, WPARAM wParam, LPARAM
 	switch (message) {
         	case WM_SIZE: {
         		RECT rect;
+                // TODO: use "hWindow" instead?
         		GetClientRect (hWnd, &rect); // HACK: hWnd is defined in 66, but also in 18 (old code)
         		int width = rect.right - rect.left;
         		int height = rect.bottom - rect.top;
@@ -139,7 +140,7 @@ LRESULT CALLBACK windowProcedure (HWND hWnd, UINT message, WPARAM wParam, LPARAM
         		TRACKMOUSEEVENT mouseEvent;
         		mouseEvent.cbSize = sizeof (TRACKMOUSEEVENT);
         		mouseEvent.hwndTrack = hWnd;
-        		mouseEvent.dwFlags = TME_LEAVE; // TODO do some research about "TME_HOVER"
+        		mouseEvent.dwFlags = TME_LEAVE; // TODO: do some research about "TME_HOVER"
         		mouseEvent.dwHoverTime = HOVER_DEFAULT;
         		TrackMouseEvent (&mouseEvent);
 
@@ -238,7 +239,12 @@ LRESULT CALLBACK windowProcedure (HWND hWnd, UINT message, WPARAM wParam, LPARAM
     	}
 	return 0;
 }
-int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszArgument, int nFunsterStil) {
+int WINAPI WinMain (
+    HINSTANCE hThisInstance,
+    HINSTANCE hPrevInstance,
+    LPSTR lpszArgument,
+    int nFunsterStil
+) {
 	static WNDCLASSEX wincl;
 
 	wincl.hInstance = hThisInstance;
@@ -248,11 +254,11 @@ int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpsz
 	wincl.cbSize = sizeof (WNDCLASSEX);
 	wincl.hIcon = LoadIcon (NULL, IDI_APPLICATION);
 	//wincl.hIcon = LoadIcon (hThisInstance, MAKEINTRESOURCE(IDI_ICON1));
-	// TODO Create new logos, menus and toolbars for the application if necessary.
+	// TODO: Create new logos, menus and toolbars for the application if necessary.
 	wincl.hIconSm = LoadIcon (NULL, IDI_APPLICATION);
 	//wincl.hIconSm = LoadIcon (hThisInstance, MAKEINTRESOURCE(IDI_SMALL));
 	//wincl.hIcon = LoadIcon(hThisInstance, MAKEINTRESOURCE(IDI_ICON1));
-	// TODO Create new logos, menus and toolbars for the application if necessary.
+	// TODO: Create new logos, menus and toolbars for the application if necessary.
 	wincl.hIconSm = LoadIcon (NULL, IDI_APPLICATION);
 	//wincl.hIconSm = LoadIcon(hThisInstance, MAKEINTRESOURCE(IDI_SMALL));
 	wincl.hCursor = LoadCursor (NULL, IDC_ARROW);
@@ -291,8 +297,8 @@ int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpsz
 
 namespace ZedStackLibrary {
 	SCREEN::SCREEN () {
-        this -> privWidth = stdWidth;
-        this -> privHeight = stdHeight;
+        this.WIDTH = stdWidth;
+        this.HEIGHT = stdHeight;
     }
 } /* ZedStackLibrary */
 
