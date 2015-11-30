@@ -297,10 +297,32 @@ int WINAPI WinMain (
 
 namespace ZedStackLibrary {
 	SCREEN::SCREEN () {
-        this.WIDTH = stdWidth;
-        this.HEIGHT = stdHeight;
+        this -> WIDTH = stdWidth;
+        this -> HEIGHT = stdHeight;
     }
-} /* ZedStackLibrary */
+	SCREEN::SCREEN (int width, int height) { resize (width, height); }
+	SCREEN::~SCREEN () {}
 
+	void SCREEN::getWidthAndHeight (int& width, int& height) {
+		width = this -> WIDTH;
+		height = this -> HEIGHT;
+	}
+	void SCREEN::resize (int newWidth, int newHeight) {
+		this -> rewriteStandards (stdWidth, stdHeight, newWidth, newHeight);
+		this -> WIDTH = newWidth;
+		this -> HEIGHT = newHeight;
+		int retWidth, retHeight;
+		realFrame (this -> WIDTH, this -> HEIGHT, retWidth, retHeight);
+		SetWindowPos (hWnd, NULL, 0, 0, retWidth, retHeight, SWP_NOMOVE);
+		newMemDC (retWidth, retHeight);
+	}
+	void SCREEN::render () { InvaidateRect (hWnd, NULL, FALSE); }
+	void SCREEN::clear () {
+		RECT rect;
+		HBRUSH hBrush = CreateSolidBrush (RGB (0, 0, 0));
+
+		SetRect (&rect, 0, 0, this -> WIDTH, this -> HEIGHT);
+	}
+} /* ZedStackLibrary */
 
 #endif /* end of include guard: ZedStackLibrary */
